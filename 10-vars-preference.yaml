@@ -10,8 +10,6 @@
      prompt: "Enter your name"
      private: false 
   tasks:
-    - name: print the name
-    #  vars:
-    #    NAME: "ansible from task level"
+    - name: print the name variable
       ansible.builtin.debug:
         msg: "the username is {{ NAME }} " 
