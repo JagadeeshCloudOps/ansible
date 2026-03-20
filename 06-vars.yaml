@@ -1,0 +1,9 @@
+- name : file level variable
+  hosts : local
+  connection : local
+  vars_files :
+    - expertise.yaml
+  tasks :
+    - name : print the variables
+      ansible.builtin.debug :
+        msg : "my name is {{ NAME }} and i am working in {{ ORG }} and my expertise is {{ EXPERTISE }}"   

@@ -1,0 +1,17 @@
+- name: variables preference
+  hosts: local
+  connection: local
+  vars:
+    NAME: "ansible from play level"
+  vars_files:
+    - expertise.yaml
+  vars_prompt:
+   - name: NAME 
+     prompt: "Enter your name"
+     private: false 
+  tasks:
+    - name: print the name
+      vars:
+        NAME: "ansible from task level"
+      ansible.builtin.debug:
+        msg: "the username is {{ NAME }} " 

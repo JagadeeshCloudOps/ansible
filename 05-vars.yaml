@@ -1,0 +1,14 @@
+- name : play level variable
+  hosts : local
+  connection : local
+  vars :
+    NAME : jagadeesh
+    ORG : cloudops
+    EXPERTISE : ansible
+  tasks :
+    - name : print the variables
+      vars :
+        NAME : jagadeesh_inturu
+        EXPERTISE : devops
+      ansible.builtin.debug :
+        msg : "my name is {{ NAME }} and i am working in {{ ORG }} and my expertise is {{ EXPERTISE }}"   
