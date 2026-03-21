@@ -4,10 +4,13 @@
   become: true
   vars:
     TOPICS: linux, ansible, automation, devops
-  tags:
-    name: ansible-filters
-    project: aicloudera
-    component: catalogue
+    TagsMaps:
+      env: production
+      app: web
+      owner: jagadeesh
+      name: ansible-filters
+      project: aicloudera
+      component: catalogue
 
   tasks:
    - name: greeting example
@@ -24,4 +27,4 @@
 
    - name: convert map to list
      ansible.builtin.debug:
-      msg: "{{ tags | dict2items }}"
+      msg: "{{ TagsMaps | dict2items }}"
