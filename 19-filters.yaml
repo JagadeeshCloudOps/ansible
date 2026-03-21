@@ -1,0 +1,9 @@
+- name: demo on filters
+  hosts: local
+  connection: local
+  become: true
+  tasks:
+   - name: greeting example
+     ansible.builtin.debug:
+      msg: "Hello, Jagadeesh {{ GREETING }}!"
+      #msg: "Hello, {{ 'world' | upper }}!"
