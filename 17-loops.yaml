@@ -9,6 +9,6 @@
         state: present
       loop:
         - nginx
-        - mariadb-mysql-server
+        - mysql
         - python3-pip
         - htop
