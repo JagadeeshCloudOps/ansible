@@ -1,7 +1,17 @@
-- name : gathering facts example
+- name: gathering facts example
   hosts: local
   connection: local
   tasks:
     - name: Gather facts about the system
       ansible.builtin.debug:
         msg: "{{ ansible_facts }}"
+
+    - name: check if the system is RedHat
+      ansible.builtin.debug:
+        msg: "The system is running on RedHat."
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: check if the system is CentOS
+      ansible.builtin.debug:
+        msg: "The system is running on CentOS."
+      when: ansible_facts['os_family'] == 'CentOS'
