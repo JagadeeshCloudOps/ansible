@@ -1,0 +1,7 @@
+- name : gathering facts example
+  hosts: local
+  connection: local
+  tasks:
+    - name: Gather facts about the system
+      ansible.builtin.setup:
+        msg: "Gathering facts about the system.{{ ansible_facts }}"
