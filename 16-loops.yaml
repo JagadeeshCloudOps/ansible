@@ -1,0 +1,19 @@
+- name : loops example
+  hosts: local
+  connection: local
+  tasks:
+    - name: Loop through a list of items
+      ansible.builtin.debug:
+        msg: "Item: {{ item }}"
+      loop:
+        - ramesh
+        - gopi
+        - sai
+
+    - name: Loop through a list of dictionaries
+      ansible.builtin.debug:
+        msg: "Name: {{ item.name }}, Age: {{ item.age }}"
+      loop:
+        - { name: 'ramesh', age: 30 }
+        - { name: 'gopi', age: 25 }
+        - { name: 'sai', age: 35 }
