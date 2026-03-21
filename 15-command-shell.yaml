@@ -11,7 +11,7 @@
         msg: "{{ command_output }}"  
 
     - name: Run a command on the local machine
-      ansible.builtin.command: echo "Hello, Ansible!" >> output.txt
+      ansible.builtin.shell: echo "Hello, Ansible!" >> output.txt
 
     - name: Run a command on the local machine
       ansible.builtin.command: ps -ef | grep ansible
