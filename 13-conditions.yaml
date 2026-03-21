@@ -1,0 +1,10 @@
+- name: conditions example
+  hosts: local
+  connection: local
+  vars:
+    No_OF_SERVERS: 3
+  tasks:
+    - name: Check if the environment is live
+      ansible.builtin.debug:
+        msg: "ansible is creating servers."
+      when: No_OF_SERVERS > 2
