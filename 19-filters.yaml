@@ -4,6 +4,11 @@
   become: true
   vars:
     TOPICS: linux, ansible, automation, devops
+  tags:
+    name: ansible-filters
+    project: aicloudera
+    component: catalogue
+
   tasks:
    - name: greeting example
      ansible.builtin.debug:
@@ -12,7 +17,11 @@
    - name: show the current date and time
      ansible.builtin.debug:
       msg: "Current date and time: {{ ansible_date_time.iso8601 }}"
-      
+        
    - name: convert string to list    
      ansible.builtin.debug:
       msg: "Topics: {{ TOPICS | split(', ') }}"    
+
+   - name: convert map to list
+     ansible.builtin.debug:
+      msg: "{{ tags | dict2items }}"
