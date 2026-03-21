@@ -8,7 +8,7 @@
 
     - name: Display the command output
       ansible.builtin.debug:
-        msg: "{{ command_output }}"  
+        msg: "{{ command_output.stdout }}"  
 
     - name: Run a shell command on the local machine
       ansible.builtin.shell: echo "Hello, Ansible!" >> output.txt
@@ -16,7 +16,7 @@
 
     - name: Display the shell command output
       ansible.builtin.debug:
-        msg: "{{ shell_output }}"  
+        msg: "{{ shell_output.stdout }}"  
 
     - name: Run a shell command on the local machine
       ansible.builtin.shell: ps -ef | grep ansible
@@ -24,4 +24,4 @@
 
     - name: Display the ps command output
       ansible.builtin.debug:
-        msg: "{{ ps_output }}"  
+        msg: "{{ ps_output.stdout }}"  
