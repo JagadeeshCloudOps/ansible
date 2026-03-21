@@ -2,8 +2,21 @@
   hosts: local
   connection: local
   become: true
+  vars:
+    TOPICS: linux, ansible, automation, devops
   tasks:
    - name: greeting example
      ansible.builtin.debug:
       msg: "Hello, Jagadeesh {{ GREETING | default('Good Morning') }}!"
       #msg: "Hello, {{ 'world' | upper }}!"
+   - name: show the current date and time
+     ansible.builtin.debug:
+      msg: "Current date and time: {{ ansible_date_time.iso8601 }}"
+
+   - name: show the current date and time in a specific format
+     ansible.builtin.debug:
+      msg: "Current date and time (custom format): {{ ansible_date_time.iso8601 | to_datetime('%Y-%m-%d %H:%M:%S') }}"
+      
+   - name: convert string to list    
+     ansible.builtin.debug:
+      msg: "Topics: {{ TOPICS | split(', ') }}"    
