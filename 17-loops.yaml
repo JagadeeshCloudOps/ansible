@@ -1,6 +1,7 @@
 - name: loops example to intall packages
   hosts: local
   connection: local
+  become: true
   tasks:
     - name: Loop through a list of packages and install them
       ansible.builtin.package:
