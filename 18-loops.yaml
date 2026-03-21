@@ -1,6 +1,7 @@
 - name: installing packages example
   hosts: local
   connection: local
+  become: true
   tasks:
     - name: Install packages using a loop
       ansible.builtin.yum:
