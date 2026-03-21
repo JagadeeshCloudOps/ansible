@@ -10,7 +10,7 @@
       ansible.builtin.debug:
         msg: "{{ command_output }}"  
 
-    - name: Run a command on the local machine
+    - name: Run a shell command on the local machine
       ansible.builtin.shell: echo "Hello, Ansible!" >> output.txt
       register: shell_output
 
@@ -18,8 +18,8 @@
       ansible.builtin.debug:
         msg: "{{ shell_output }}"  
 
-    - name: Run a command on the local machine
-      ansible.builtin.command: ps -ef | grep ansible
+    - name: Run a shell command on the local machine
+      ansible.builtin.shell: ps -ef | grep ansible
       register: ps_output
 
     - name: Display the ps command output
